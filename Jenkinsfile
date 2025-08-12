@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Deploy to Web Tier') {
             steps {
-                sshagent([SSH_CRED]) {
+                sshagent(['ec2-ssh-key']) {
                     sh '''
                         WEB_IP=$(aws ec2 describe-instances \
                             --region $AWS_REGION \
